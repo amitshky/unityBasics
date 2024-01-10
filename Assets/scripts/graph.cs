@@ -10,7 +10,7 @@ public class Graph : MonoBehaviour
 
 	float GraphFuntion(float x)
 	{
-		return 0.2f * (x * x * x) - 1.64f;
+		return x * x * x;
 	}
 
 	void Awake()
