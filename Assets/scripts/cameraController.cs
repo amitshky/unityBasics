@@ -18,7 +18,6 @@ public class camera : MonoBehaviour
 
 	void LockCursor(bool isLocked)
 	{
-		position = transform.position;
 		if (isLocked)
 			Cursor.lockState = CursorLockMode.Locked;
 		else
@@ -27,6 +26,7 @@ public class camera : MonoBehaviour
 
 	void Start()
 	{
+		position = transform.position;
 		LockCursor(isCursorLocked);
 	}
 
