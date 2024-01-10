@@ -5,12 +5,22 @@ public class Graph : MonoBehaviour
 	[SerializeField]
 	Transform pointPrefab;
 
+	float GraphFuntion(float x)
+	{
+		return 0.2f * (x * x * x) - 1.64f;
+	}
+
 	void Awake()
 	{
-		for (int i = -10; i < 10; ++i)
+		Transform point;
+		Vector3 scale = Vector3.one / 5.0f;
+
+		for (int i = 0; i < 10; ++i)
 		{
-			Transform point = Instantiate<Transform>(pointPrefab);
-			point.localPosition = new Vector3((float)i, (float)(0.2f * (i * i * i)) -1.64f, 0.0f);
+			float x = ((float)i + 0.5f) / 5.0f - 1.0f;
+			point = Instantiate<Transform>(pointPrefab);
+			point.localPosition = new Vector3(x, GraphFuntion(x), 0.0f);
+			point.localScale = scale;
 		}
 	}
 }

@@ -5,15 +5,13 @@ public class Clock : MonoBehaviour
 {
 	[SerializeField]
 	Transform hourHandPivot;
-
 	[SerializeField]
 	Transform minHandPivot;
-
 	[SerializeField]
 	Transform secHandPivot;
 
 	const float _hrHandDegreesPerSec = -(1.0f / 120.0f);
-	const float _minHandDegreesPerSec = -(1.0f/ 10.0f);
+	const float _minHandDegreesPerSec = -(1.0f / 10.0f);
 	const float _secHandDegreesPerSec = -6.0f;
 
 	void UpdateTime()
