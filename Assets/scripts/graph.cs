@@ -4,6 +4,9 @@ public class Graph : MonoBehaviour
 {
 	[SerializeField]
 	Transform pointPrefab;
+	[SerializeField, Range(10, 100)]
+	int resolution = 10;
+
 
 	float GraphFuntion(float x)
 	{
@@ -12,14 +15,21 @@ public class Graph : MonoBehaviour
 
 	void Awake()
 	{
+		float step = 2.0f / (float)resolution;
+		Vector3 scale = Vector3.one * step;
+		Vector3 position = Vector3.zero;
 		Transform point;
-		Vector3 scale = Vector3.one / 5.0f;
 
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < resolution; ++i)
 		{
-			float x = ((float)i + 0.5f) / 5.0f - 1.0f;
 			point = Instantiate<Transform>(pointPrefab);
-			point.localPosition = new Vector3(x, GraphFuntion(x), 0.0f);
+			point.SetParent(transform, false);
+
+			float x = ((float)i + 0.5f) * step - 1.0f;
+			position.x = x;
+			position.y = GraphFuntion(x);
+
+			point.localPosition = position;
 			point.localScale = scale;
 		}
 	}
