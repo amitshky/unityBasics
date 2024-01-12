@@ -6,7 +6,7 @@ public class camera : MonoBehaviour
 	[SerializeField, Range(0.1f, 10.0f)]
 	float mouseSensitivity = 2.5f;
 	[SerializeField, Range(0.1f, 20.0f)]
-	float movementSpeed = 10f;
+	float movementSpeed = 2f;
 
 
 	float _yaw = 0.0f;
