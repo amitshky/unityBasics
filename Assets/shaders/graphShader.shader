@@ -18,7 +18,7 @@ Shader "Graph/Point Surface" {
 		float _smoothness;
 		void ConfigureSurface(Input input, inout SurfaceOutputStandard surface)
 		{
-			surface.Albedo.rg = input.worldPos.xy * 0.5 + 0.5;
+			surface.Albedo.rg = saturate(input.worldPos.xy * 0.5 + 0.5); // saturate is added to clamp the value between 0 to 1
 			surface.Smoothness = _smoothness;
 		}
 		ENDCG

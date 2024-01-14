@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4572053881303976359}
   - component: {fileID: 5411812770534977477}
-  - component: {fileID: 1471390830399377905}
+  - component: {fileID: 3283160160553962878}
   m_Layer: 0
   m_Name: point
   m_TagString: Untagged
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34154235580633614}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1471390830399377905
+--- !u!23 &3283160160553962878
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9a48477600349f5438f543892b5d7607, type: 2}
+  - {fileID: 2100000, guid: d2b0259e846ade245be7e0d0f06b94c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
