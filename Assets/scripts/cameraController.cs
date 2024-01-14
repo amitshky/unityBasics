@@ -29,14 +29,14 @@ public class camera : MonoBehaviour
 
 	void Update()
 	{
-		if (Mouse.current.leftButton.wasReleasedThisFrame)
+		if (Mouse.current.rightButton.wasReleasedThisFrame)
 			LockCursor(false);
 
 		// move and/or rotate mouse if left button is pressed
-		if (!Mouse.current.leftButton.IsPressed())
+		if (!Mouse.current.rightButton.IsPressed())
 			return;
 
-		if (Mouse.current.leftButton.wasPressedThisFrame)
+		if (Mouse.current.rightButton.wasPressedThisFrame)
 			LockCursor(true);
 
 		// rotate camera
