@@ -59,7 +59,11 @@
         }
     ],
     "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "e315bcb087074241a8aab3ae25fe078a"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -1162,6 +1166,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "e315bcb087074241a8aab3ae25fe078a",
+    "m_Title": "Saturate",
+    "m_Content": "Saturate node is added to clamp the value from 0 to 1\n",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -458.0,
+        "y": 17.0,
+        "width": 201.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "e80437e509a646d997b9bb478f4621a4",
     "m_Group": {
@@ -1172,8 +1196,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -156.0,
-            "y": 363.0,
+            "x": -465.0,
+            "y": 443.0000305175781,
             "width": 140.0,
             "height": 34.0
         }
