@@ -12,6 +12,7 @@ public class camera : MonoBehaviour
 	float _yaw = 0.0f;
 	float _pitch = 0.0f;
 	Vector3 _position;
+	Vector3 _originalPosition;
 
 
 	void LockCursor(bool isLocked)
@@ -24,11 +25,15 @@ public class camera : MonoBehaviour
 
 	void Start()
 	{
+		_originalPosition = transform.position;
 		_position = transform.position;
 	}
 
 	void Update()
 	{
+		if (Keyboard.current.rKey.wasPressedThisFrame)
+			transform.position = _originalPosition;
+
 		if (Mouse.current.rightButton.wasReleasedThisFrame)
 			LockCursor(false);
 
