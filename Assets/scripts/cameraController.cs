@@ -1,48 +1,51 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class camera : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
 	[SerializeField, Range(0.1f, 10.0f)]
 	float mouseSensitivity = 2.5f;
 	[SerializeField, Range(0.1f, 20.0f)]
-	float movementSpeed = 2f;
+	float movementSpeed = 5.0f;
 
 
 	float _yaw = 0.0f;
 	float _pitch = 0.0f;
 	Vector3 _position;
 	Vector3 _originalPosition;
+	Quaternion _originalRotation;
 
-
-	void LockCursor(bool isLocked)
-	{
-		if (isLocked)
-			Cursor.lockState = CursorLockMode.Locked;
-		else
-			Cursor.lockState = CursorLockMode.None;
-	}
 
 	void Start()
 	{
 		_originalPosition = transform.position;
+		_originalRotation = transform.rotation;
 		_position = transform.position;
 	}
 
 	void Update()
 	{
+		// press "R" to reset the camera
 		if (Keyboard.current.rKey.wasPressedThisFrame)
+		{
+			_position = _originalPosition;
 			transform.position = _originalPosition;
+			transform.rotation = _originalRotation;
+			_yaw = 0.0f;
+			_pitch = 0.0f;
+		}
 
+		// unlock the cursor if right mouse button is released
 		if (Mouse.current.rightButton.wasReleasedThisFrame)
-			LockCursor(false);
+			Cursor.lockState = CursorLockMode.None;
 
 		// move and/or rotate mouse if left button is pressed
 		if (!Mouse.current.rightButton.IsPressed())
 			return;
 
+		// lock the cursor if right mouse button is pressed
 		if (Mouse.current.rightButton.wasPressedThisFrame)
-			LockCursor(true);
+			Cursor.lockState = CursorLockMode.Locked;
 
 		// rotate camera
 		float mouseAxisX = Mouse.current.delta.x.ReadValue();

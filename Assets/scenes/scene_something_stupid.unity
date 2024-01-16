@@ -154,8 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2fee49586ef904bbf868d1a2890cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  offset: 1.5
+  speed: 3
+  offset: 0
+  radius: 1
 --- !u!23 &373324790
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +234,7 @@ GameObject:
   - component: {fileID: 517686348}
   - component: {fileID: 517686347}
   - component: {fileID: 517686351}
-  - component: {fileID: 517686350}
+  - component: {fileID: 517686352}
   m_Layer: 0
   m_Name: main_camera
   m_TagString: MainCamera
@@ -315,20 +316,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &517686350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517686346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24df14072dde71f4bace84e96d4f8f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 2.5
-  movementSpeed: 2
 --- !u!114 &517686351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +360,20 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &517686352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517686346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24df14072dde71f4bace84e96d4f8f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 2.5
+  movementSpeed: 5
 --- !u!1 &1485260971
 GameObject:
   m_ObjectHideFlags: 0
