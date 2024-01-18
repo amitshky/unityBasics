@@ -18,23 +18,22 @@ public static class FunctionLibrary
 
 	public static float Wave(float x, float z, float t)
 	{
-		return Mathf.Sin(Mathf.PI * (x * z + t));
+		return Mathf.Sin(Mathf.PI * (x + z + t));
 	}
 
 	public static float MultiWave(float x, float z, float t)
 	{
-		float y = Mathf.Sin(Mathf.PI * (x * z + t));
-		y += 0.50f * Mathf.Sin(2.0f * Mathf.PI * (x * z + t));
-		y += 0.25f * Mathf.Sin(4.0f * Mathf.PI * (x * z + t));
+		float y = Mathf.Sin(Mathf.PI * (x + 0.5f * t));
+		y += 0.50f * Mathf.Sin(2.0f * Mathf.PI * (z + t));
+		y += Mathf.Sin(Mathf.PI * (x + z + 0.25f * t));
 
-		return y * 0.8192020972f; // dividing by 1.2207 and normalizing the result from -1 to 1
+		return y / 2.5f; // dividing by 1.2207 and normalizing the result from -1 to 1
 	}
 
 	public static float Ripple(float x, float z, float t)
 	{
-		float distanceX = Mathf.Abs(x);
-		float distanceZ = Mathf.Abs(z);
-		float y = Mathf.Sin(Mathf.PI * (4.0f * distanceX * distanceZ - t)) / (1.0f + 10.0f * distanceX * distanceZ);
+		float distance = Mathf.Sqrt(x * x + z * z);
+		float y = Mathf.Sin(Mathf.PI * (4.0f * distance - t)) / (1.0f + 10.0f * distance);
 
 		return y;
 	}
