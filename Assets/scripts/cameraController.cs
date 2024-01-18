@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
 		_originalPosition = transform.position;
 		_originalRotation = transform.rotation;
 		_position = transform.position;
+		_yaw = transform.localRotation.eulerAngles.y;
+		_pitch = transform.localRotation.eulerAngles.x;
 	}
 
 	void Update()
@@ -28,11 +30,11 @@ public class CameraController : MonoBehaviour
 		// press "R" to reset the camera
 		if (Keyboard.current.rKey.wasPressedThisFrame)
 		{
-			_position = _originalPosition;
 			transform.position = _originalPosition;
 			transform.rotation = _originalRotation;
-			_yaw = 0.0f;
-			_pitch = 0.0f;
+			_position = _originalPosition;
+			_yaw = transform.localRotation.eulerAngles.y;
+			_pitch = transform.localRotation.eulerAngles.x;
 		}
 
 		// unlock the cursor if right mouse button is released

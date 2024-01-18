@@ -1,5 +1,5 @@
 # unityBasics
-Learning Unity basics.
+Learning basics of Unity.
 
 ## Screenshots
 Clock\
