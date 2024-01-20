@@ -62,13 +62,13 @@ public static class FunctionLibrary
 	public static Vector3 Torus(float u, float v, float t)
 	{
 		// parametric equation of a torus
-		float externalRadius = 1.0f;
-		float internalRadius = 0.25f;
+		float radius = 1.0f; // radius of the whole torus
+		float ringRadius = 0.5f; // radius of the individual circles
 
 		Vector3 p;
-		p.x = (externalRadius + internalRadius * Mathf.Cos(Mathf.PI * u)) * Mathf.Cos(Mathf.PI * v);
-		p.y = internalRadius * Mathf.Sin(Mathf.PI * u);
-		p.z = (externalRadius + internalRadius * Mathf.Cos(Mathf.PI * u)) * Mathf.Sin(Mathf.PI * v);
+		p.x = (radius + ringRadius * Mathf.Cos(Mathf.PI * u)) * Mathf.Cos(Mathf.PI * v);
+		p.y = ringRadius * Mathf.Sin(Mathf.PI * u);
+		p.z = (radius + ringRadius * Mathf.Cos(Mathf.PI * u)) * Mathf.Sin(Mathf.PI * v);
 		
 		return p;
 	}
