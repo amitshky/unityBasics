@@ -2,13 +2,12 @@ using UnityEngine;
 
 public static class FunctionLibrary
 {
-	public delegate float Function(float x, float z, float t);
+	public delegate Vector3 Function(float u, float v, float t);
 
-	private static Function[] _functions = { Wave, MultiWave, Ripple };
-
+	private static Function[] _functions = { Wave, MultiWave, Ripple, Sphere };
 	public enum FunctionSelecter : uint
 	{
-		Wave, MultiWave, Ripple
+		Wave, MultiWave, Ripple, Sphere
 	}
 
 	public static Function GetFunction(FunctionSelecter index)
@@ -16,25 +15,46 @@ public static class FunctionLibrary
 		return _functions[(uint)index];
 	}
 
-	public static float Wave(float x, float z, float t)
+	public static Vector3 Wave(float u, float v, float t)
 	{
-		return Mathf.Sin(Mathf.PI * (x + z + t));
+		return new Vector3(u, Mathf.Sin(Mathf.PI * (u + v + t)), v);
 	}
 
-	public static float MultiWave(float x, float z, float t)
+	public static Vector3 MultiWave(float u, float v, float t)
 	{
-		float y = Mathf.Sin(Mathf.PI * (x + 0.5f * t));
-		y += 0.50f * Mathf.Sin(2.0f * Mathf.PI * (z + t));
-		y += Mathf.Sin(Mathf.PI * (x + z + 0.25f * t));
+		Vector3 p;
+		p.x = u;
+		p.z = v;
 
-		return y / 2.5f; // dividing by 1.2207 and normalizing the result from -1 to 1
+		p.y = Mathf.Sin(Mathf.PI * (u + 0.5f * t));
+		p.y += 0.50f * Mathf.Sin(2.0f * Mathf.PI * (v + t));
+		p.y += Mathf.Sin(Mathf.PI * (u + v + 0.25f * t));
+		p.y /= 2.5f;
+
+		return p;
 	}
 
-	public static float Ripple(float x, float z, float t)
+	public static Vector3 Ripple(float u, float v, float t)
 	{
-		float distance = Mathf.Sqrt(x * x + z * z);
-		float y = Mathf.Sin(Mathf.PI * (4.0f * distance - t)) / (1.0f + 10.0f * distance);
+		float distance = Mathf.Sqrt(u * u + v * v);
 
-		return y;
+		Vector3 p;
+		p.x = u;
+		p.y = Mathf.Sin(Mathf.PI * (4.0f * distance - t)) / (1.0f + 10.0f * distance);
+		p.z = v;
+
+		return p;
+	}
+
+	public static Vector3 Sphere(float u, float v, float t)
+	{
+		float r = Mathf.Cos(0.5f * Mathf.PI * v);
+
+		Vector3 p;
+		p.x = r * Mathf.Sin(Mathf.PI * u);
+		p.y = Mathf.Sin(0.5f * Mathf.PI * v);
+		p.z = r * Mathf.Cos(Mathf.PI * u);
+
+		return p;
 	}
 }
