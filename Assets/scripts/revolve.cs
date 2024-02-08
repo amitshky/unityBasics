@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Revolve: MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Revolve: MonoBehaviour
 
 	void Update()
 	{
+		if (Keyboard.current.escapeKey.wasPressedThisFrame)
+			Application.Quit();
+
 		Vector3 position = new Vector3(
 			radius * Mathf.Sin(Mathf.PI * Time.time / radius) + xOffset, 
 			radius * Mathf.Cos(Mathf.PI * Time.time / radius) + yOffset, 

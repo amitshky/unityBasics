@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Clock : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class Clock : MonoBehaviour
 
 	void Update()
 	{
+		if (Keyboard.current.escapeKey.wasPressedThisFrame)
+			Application.Quit();
+
 		UpdateTime();
 	}
 }

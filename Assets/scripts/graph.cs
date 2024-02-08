@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class Graph : MonoBehaviour
@@ -32,6 +33,9 @@ public class Graph : MonoBehaviour
 
 	void Update()
 	{
+		if (Keyboard.current.escapeKey.wasPressedThisFrame)
+			Application.Quit();
+
 		Vector3 position = Vector3.zero;
 		float step = 2.0f / (float)resolution;
 
