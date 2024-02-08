@@ -20,7 +20,8 @@ public class FPSCounter : MonoBehaviour
 		if (_duration >= sampleDuration)
 		{
 			int fps = (int)(_frames / _duration);
-			counterUI.SetText("FPS\n{}", fps);
+			float ms = (_duration / _frames) * 1000.0f;
+			counterUI.SetText("FPS: {}\n({1:2}ms)", fps, ms);
 			_duration = 0.0f;
 			_frames = 0;
 		}

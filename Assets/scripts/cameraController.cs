@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-	[SerializeField, Range(0.1f, 10.0f)]
+	[SerializeField, Range(0.1f, 5.0f)]
 	float mouseSensitivity = 2.5f;
-	[SerializeField, Range(0.1f, 20.0f)]
+	[SerializeField, Range(0.1f, 10.0f)]
 	float movementSpeed = 5.0f;
 
 
@@ -52,8 +52,8 @@ public class CameraController : MonoBehaviour
 		// rotate camera
 		float mouseAxisX = Mouse.current.delta.x.ReadValue();
 		float mouseAxisY = Mouse.current.delta.y.ReadValue();
-		float mouseX = mouseAxisX * mouseSensitivity * Time.deltaTime;
-		float mouseY = mouseAxisY * mouseSensitivity * Time.deltaTime;
+		float mouseX = mouseAxisX * mouseSensitivity / 100.0f;
+		float mouseY = mouseAxisY * mouseSensitivity / 100.0f;
 
 		_yaw += mouseX;
 		_pitch -= mouseY;
