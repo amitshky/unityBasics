@@ -15,6 +15,10 @@ public class Graph : MonoBehaviour
 
 	Transform[] _points;
 
+	// getters and setters for UI
+	public FunctionLibrary.FunctionSelecter GetGraphFunction() { return selectFunction; }
+	public void SetGraphFunction(FunctionLibrary.FunctionSelecter option) { selectFunction = option; }
+
 	void Awake()
 	{
 		_points = new Transform[resolution * resolution];

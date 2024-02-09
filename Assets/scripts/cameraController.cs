@@ -8,13 +8,18 @@ public class CameraController : MonoBehaviour
 	[SerializeField, Range(0.1f, 10.0f)]
 	float movementSpeed = 5.0f;
 
-
 	float _yaw = 0.0f;
 	float _pitch = 0.0f;
 	Vector3 _position;
 	Vector3 _originalPosition;
 	Quaternion _originalRotation;
 
+	// getters and setters for UI
+	public void SetMouseSensitivity(float value) { mouseSensitivity = value; }
+	public float GetMouseSensitivity() { return mouseSensitivity; }
+	
+	public void SetMovementSpeed(float value) { movementSpeed = value; }
+	public float GetMovementSpeed() { return movementSpeed; }
 
 	void Start()
 	{
