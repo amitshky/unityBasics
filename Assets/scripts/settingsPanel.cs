@@ -6,17 +6,12 @@ using TMPro;
 
 public class SettingsPanel : MonoBehaviour
 {
-  [SerializeField]
-  CameraController _cameraController;
-	[SerializeField]
-	Graph _graph;
+  [SerializeField] CameraController _cameraController;
+	[SerializeField] Graph _graph;
 
-  [SerializeField]
-  Slider _mouseSensitivitySlider;
-  [SerializeField]
-  Slider _movementSpeedSlider;
-	[SerializeField]
-	TMP_Dropdown _graphFunctionDropdown;
+  [SerializeField] Slider _mouseSensitivitySlider;
+  [SerializeField] Slider _movementSpeedSlider;
+	[SerializeField] TMP_Dropdown _graphFunctionDropdown;
 
   void Awake()
   {
